@@ -98,6 +98,7 @@ def main(){
   mp.setDescription("There is a mysterious person in this room. He gives you a parachute");
   entrance1 mp = new entrance1();
 
+  win = false;
   
   while(win == false){
     entrance1* current = e1;
@@ -129,6 +130,9 @@ def main(){
 	    west.strcpy(west, "WEST");
 	    h1.setExit(west, r1);
 	//}
+	  //else {
+	  //cout << "you dont have the key" << endl;
+	  //}
       }
       //going east to room2 from hallway1
       else if (current == h1 && dir == "EAST"){
@@ -139,28 +143,312 @@ def main(){
 	    east.strcpy(east, "EAST");
 	    h1.setExit(east, "EAST");
 	//}
+	  //else {
+	  //cout << "you dont have the key" << endl;
+	  //}
       }
       else if (current == h1 && dir == "SOUTH"){
 	entrance1* current = e1;
-	char* south = new char[20[];
+	char* south = new char[20];
 	north.strcpy(south, "SOUTH");
 	h1.setExit(south, e1);		       
       }
     }
+     if(current->getExit(input)!= NULL){
+      if (current == e1 && dir == "NORTH"){
+        entrance1* current = h1;
+        char* north = new char[20];
+        north.strcpy(north, "NORTH");
+        e1.setExit(north, h1);
+      }
+    }
+     
+    //going north to hallway3 from hallway2
+    if(current->getExit(input)!= NULL){
+      if (current == h2 && dir == "NORTH"){
+        entrance1* current = h3;
+        char* north = new char[20];
+        north.strcpy(north, "NORTH");
+        h2.setExit(north, h3);
+      }
+      //going east to room3 from hallway2
+      else if (current == h2 && dir == "WEST"){
+        cout << "You have to have the key to go into room 3" << endl;
+        //if (key in inventory){
+            entrance1* current = r3;
+            char* east = new char[20];
+            west.strcpy(west, "WEST");
+            h2.setExit(west, r3);
+        //}
+          //else {
+          //cout << "you dont have the key" << endl;
+          //}
+      }
+      //going east to room4 from hallway2
+      else if (current == h2 && dir == "EAST"){
+        cout << "There are boards blocking your way. Maybe get something to break in?" << endl;
+        //if (sledgehammer in inventory){
+            entrance1* current = r4;
+            char* east = new char[20];
+            east.strcpy(east, "EAST");
+            h2.setExit(east, "EAST");
+        //}
+          //else {
+          //cout << "you dont have the key" << endl;
+          //}
+      }
+      else if (current == h2 && dir == "SOUTH"){
+        entrance1* current = h1;
+        char* south = new char[20];
+        north.strcpy(south, "SOUTH");
+        h2.setExit(south, h1);
+      }
+    }
 
+    //going north to hallway4 from hallway3
+    if(current->getExit(input)!= NULL){
+      if (current == h3 && dir == "NORTH"){
+        entrance1* current = h4;
+        char* north = new char[20];
+        north.strcpy(north, "NORTH");
+        h3.setExit(north, h4);
+      }
+      //going east to brokenstairs from hallway3
+      else if (current == h3 && dir == "WEST"){
+        cout << "Stairs need to be fixed to go up. Maybe find tools to fix it?" << endl;
+        //if (nails, hammer, and wood in inventory){
+            entrance1* current = b;
+            char* east = new char[20];
+            west.strcpy(west, "WEST");
+            h3.setExit(west, b);
+        //}
+          //else {
+          //cout << "you dont have the tools necessary" << endl;
+          //}
+      }
+      //going east to closet from hallway3
+      else if (current == h3 && dir == "EAST"){
+        cout << "There are boards blocking your way. Maybe get something to break in?" << endl;
+          entrance1* current = c;
+          char* east = new char[20];
+          east.strcpy(east, "EAST");
+          h3.setExit(east, "EAST");
+      }
+      else if (current == h3 && dir == "SOUTH"){
+        entrance1* current = h2;
+        char* south = new char[20];
+        north.strcpy(south, "SOUTH");
+        h3.setExit(south, h2);
+      }
+    }
+
+    //going west to broken elevator from hallway4
+    if(current->getExit(input)!= NULL){
+      if (current == h4 && dir == "WEST"){
+	cout << "The door to the elevator is jammed closed. Maybe use something to pry it open?" << endl;
+	//if (crowbar in inventory){
+          entrance1* current = be;
+          char* west = new char[20];
+          west.strcpy(west, "WEST");
+          h4.setExit(west, be);
+	//}
+	//else {
+	//cout >> "you dont have the tools necessary" << endl;
+	//}
+      }
+      //going east to ledge from hallway4
+      else if (current == h4 && dir == "EAST"){
+        cout << "The wall here fell, its a long drop down" << endl;
+	//if (parachute in inventory){
+            entrance1* current = l;
+            char* east = new char[20];
+            east.strcpy(east, "EAST");
+            h4.setExit(east, "EAST");
+	//}
+	//else {
+	//cout << "dont go here you will die from the fall" << endl;
+	//}
+      }
+      else if (current == h4 && dir == "SOUTH"){
+        entrance1* current = h3;
+        char* south = new char[20];
+        north.strcpy(south, "SOUTH");
+        h4.setExit(south, h3);
+      }
+    }
+
+    //going from broken stairs to entrance2
+    if(current->getExit(input)!= NULL){
+      if(current == b && dur == "NORTH"){
+	entrance1* current = e2;
+	char* north = new char[20];
+	north.strcpy(north, "NORTH");
+	b.setExit(north, e2);
+      }
+    }
+    
+    //going from entrance2 to hallway5
+    if(current->getExit(input)!= NULL){
+      if(current == e2 && dir == "NORTH"){
+	entrance1* current = h5;
+	char* north = new char[20];
+	north.strcpy(north, "NORTH");
+	e2.setExit(north, h5);
+      }
+      //going south from entrance2 to brokenstairs
+      else if(current == e2 && dir == "SOUTH"){
+	entrance1* current = b;
+	char* south = new char[20];
+	south.strcpy(south, "SOUTH");
+	e2.setExit(south, b);
+      }
+    }
+
+    //going east to room5 5 from hallway5
+    if(current->getExit(input)!= NULL){
+      if(current == h5 && dir == "EAST"){
+	cout << "you need the room 5 key to enter" << endl;
+	//if (key in inventory){
+          entrance1* current = ;
+          char* north = new char[20];
+          north.strcpy(north, "NORTH");
+          e2.setExit(north, h5);
+        //}
+	//else{
+	//cout << "you dont have the key" << endl;
+	//}
+      }
+      //going south to entrance2
+      else if (current == h5 && dir == "SOUTH") {
+	entrance1* current = e2;
+	char* south = new char[20];
+	north.strcpy(south, "SOUTH");
+	h5.setExit(south, e2);
+      }
+    }
+
+    //going from broken elevator to entrance3
+    if(current->getExit(input)!= NULL){
+      if(current == be && dir == "NORTH"){
+        entrance1* current = e3;
+	char* north = new char[20];
+	north.strcpy(north, "NORTH");
+	be.setExt(north, e3);
+      }
+    }
+
+    //going from entrance3 to mysterious person
+    if(current->getExit(input)!= NULL){
+      if(current == e3 && dir == "NORTH"){
+	entrance1* current = mp;
+	char* north = new char[20];
+	north.strcpy(north, "NORTH");
+	e3.setExit(north, mp)
+      }
+      else if (current == e3 && dir == "SOUTH"){
+	entrance1* current = be;
+	char* south = new char[20];
+	south.strcpy(south, "SOUTH");
+	e3.setExit(south, be);
+      }
+    }
+    
+    //going from room1 to the safe
+    if(current->getExit(input)!= NULL){
+      if(current == r1 && dir == "WEST"){
+	entrance1* current = s;
+	char* west = new char[20];
+	west.strcpy(west, "WEST");
+	r1.setExit(west, s);
+      }
+    }
+    //room exits
+    if(current->getExit(input)!= NULL{
+      else if(current == r1 && dir == "EAST"){
+        entrance1* current = h1;
+	char* east = new char[20];
+	east.strcpy(east, "EAST");
+	r1.setExit(east, h1);
+      }
+      else if(current == s && dir == "EAST"){
+        entrance1* current = r1;
+        char* east = new char[20];
+        east.strcpy(east, "EAST");
+        s.setExit(east, r1);
+      }
+
+      else if(current == r2 && dir == "WEST"){
+        entrance1* current = h1;
+        char* west = new char[20];
+        west.strcpy(west, "WEST");
+        r2.setExit(west, h1);
+      }
+      else if(current == r3 && dir == "EAST"){
+        entrance1* current = h2;
+        char* east = new char[20];
+        east.strcpy(east, "EAST");
+        r3.setExit(east, h2);
+      }
+      else if(current == r4 && dir == "WEST"){
+        entrance1* current = h2;
+        char* west = new char[20];
+        west.strcpy(west, "WEST");
+        r4.setExit(west, h2);
+      }
+      else if(current == b && dir == "EAST"){
+        entrance1* current = h3;
+        char* east = new char[20];
+        east.strcpy(east, "EAST");
+        b.setExit(east, h3);
+      }
+      else if(current == c && dir == "WEST"){
+        entrance1* current = h3;
+        char* west = new char[20];
+        west.strcpy(west, "WEST");
+        c.setExit(west, h3);
+      }
+      else if(current == be && dir == "EAST"){
+        entrance1* current = h4;
+        char* east = new char[20];
+        east.strcpy(east, "EAST");
+        be.setExit(east, h4);
+      }
+      else if(current == l && dir == "WEST"){
+        entrance1* current = h4;
+        char* west = new char[20];
+        west.strcpy(west, "WEST");
+        l.setExit(west, h3);
+      }
+      else if(current == r5 && dir == "WEST"){
+        entrance1* current = h5;
+        char* west = new char[20];
+        west.strcpy(west, "WEST");
+        r5.setExit(west, r5);
+      }
+      else if(current == mp && dir == "SOUTH"){
+        entrance1* current = e3;
+        char* south = new char[20];
+        south.strcpy(south, "SOUTH");
+        mp.setExit(south, e3);
+      }
+
+
+    }
+
+    
 
   
-    if(current->getExit(input)!= NULL){
-      if (current == e1 && dir == "EAST"){
-        if (hasKey){
-	  //go in
-        else{
-	  //cout
-        }
-        }
-      }
-      current = current->getExit(input);
-    }
+    //if(current->getExit(input)!= NULL){
+    //  if (current == e1 && dir == "EAST"){
+    //    if (hasKey){
+	    //go in
+    //    }
+    //      else{
+    	    //cout
+    //      }
+    //    }
+    //    current = current->getExit(input);
+    //}
 
     //get directions
     //entrance1 e1 = new entrance1();
