@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+def main(){
+  entrance1* current = e1;
+  cout << "You wake up in a adandoned hotel. How did you get here?" << endl;
+  cin >> input;
+  if(current->getExit(input)!= NULL){
+    if (current == e1 && dir == "NORTH"){
+      current = current->getExit("NORTH");
+      entrance1 h1 = new entrance1();
+      h1.setDescription("You are in a dark hallway with doors on either side of you");
+      entrance1 h1 = new entrance1();
+      entrance1* current = h1;
+      char* north = new char[20];
+      north.strcpy(north, "NORTH");
+      e1.setExit(north, h1);
+    }
+  }
+  if(current->getExit(input)!= NULL){
+    if (current == h1 && dir == "NORTH"){
+      entrance1 h2 = new entrance1();
+      h2.setDescription("You walk farther down the hall. you are in a dark hallway with doors on either side of you");
+      entrance1 h2 = new entrance1();
+      entrance1* current = h2;
+      char* north = new char[20];
+      north.strcpy(north, "NORTH");
+      h1.setExit(north, h2);
+    }
+    else if (current == h1 && dir == "EAST"){
+      cout << "You have to have the key to go into room 2" << endl;
+      
+    }
+    else if (current == h1 && dir == "SOUTH"){
+
+    }
+  }
+
+
+  
+  if(current->getExit(input)!= NULL){
+    if (current == e1 && dir == "EAST"){
+      if (hasKey){
+	//go in
+      else{
+	//cout
+      }
+      }
+    }
+    current = current->getExit(input);
+  }
+
+  //get directions
+  entrance1 e1 = new entrance1();
+  e1.setDescription("Start");
+  entrance1 h1 = new entrance1();
+  char* north = new char[20];
+  north.strcpy(north, "NORTH");
+  e1.setExit(north, h1);
+}
